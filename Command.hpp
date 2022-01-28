@@ -66,9 +66,13 @@ private:
 
         bool command;
         // 1. check whether the action is one of the supported actions
-        if (action == 'q' || action == 'h' || action == 'r' || action == 'a' || action == 'd')
+        if (action == 'h' || action == 'r' || action == 'a' || action == 'd')
         {
             command = true;
+        }
+        else if (action == 'q')
+        { //abort programm in case q
+            return false;
         }
         else
         {
