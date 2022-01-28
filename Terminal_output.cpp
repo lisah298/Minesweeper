@@ -1,4 +1,5 @@
 #include "Terminal_output.hpp"
+#include "Command.hpp"
 #include <iostream>
 
 int main()
