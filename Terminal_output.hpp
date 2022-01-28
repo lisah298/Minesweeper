@@ -48,7 +48,7 @@ public:
         for (size_t row = 0; row < metadata.grid_size.rows; ++row)
         {
             // print row at beginning
-            cout << row << " | ";
+            cout << row << " |";
             for (size_t column = 0; column < metadata.grid_size.columns; ++column)
             {
                 cout << decorate_tile(grid(row, column));
@@ -66,7 +66,7 @@ private:
     void print_numbers(size_t num_columns)
     {
         cout
-            << "     ";
+            << "    ";
         for (int i = 0; i < num_columns; ++i)
         { //number with 3 spaces
             cout << i << "   ";
@@ -75,7 +75,7 @@ private:
     };
     void print_line_of_equals(size_t num_columns)
     {
-        cout << "   " << string(4 * num_columns, '=') << endl;
+        cout << "  =" << string(4 * num_columns, '=') << endl;
     };
 
     string decorate_tile(const Tile &tile)
