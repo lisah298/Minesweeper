@@ -51,10 +51,12 @@ public:
 
         for (size_t row = 0; row < metadata.grid_size.rows; ++row)
         {
-
+            // print row at beginning
+            cout << row << " |";
             for (size_t column = 0; column < metadata.grid_size.columns; ++column)
             {
                 cout << grid(row, column);
+                cout << " | ";
             }
             cout << endl; // neue Zeile
         }
