@@ -8,7 +8,9 @@ class Grid
 {
 private:
     std::vector<std::vector<Tile>> tiles;
-    const Tile grey = '@';
+
+public:
+    const Tile grey{'@'};
     const Tile orange = 'A';
     const Tile darkred = '*';
     const Tile red = 'L';
@@ -22,11 +24,10 @@ private:
     const Tile six = '6';
     const Tile seven = '7';
     const Tile eight = '8';
-
-public:
-    Grid(const GridSize &size) : tiles(size.rows, std::vector<Tile>(size.columns, '@')){
+    Grid(const GridSize &size) : tiles(size.rows, std::vector<Tile>(size.columns, 'L')){
                                      // Teste, ob rows und columns richtig übergeben werden
                                      //cout << "rows: " << size.rows << " columns: " << size.columns << endl;
+                                     //cout << grey << endl;
                                  };
 
     const Tile &operator()(Coordinates coords) const
@@ -47,6 +48,33 @@ public:
         return tiles[row][column];
     }
 
+    std::string decorate_tile(const Tile &tile)
+    {
+        switch (tile)
+        {
+        case '1':
+            return "\033[38;5;4m"
+                   " 1 "
+                   "\033[0m";
+        case '@':
+            return "\033[48;5;243m"
+                   "   "
+                   "\033[0m";
+        case 'A':
+            return "\033[48;5;202m"
+                   "   "
+                   "\033[0m";
+        case '*':
+            return "\033[48;5;124m"
+                   "   "
+                   "\033[0m";
+        case 'L':
+            return "\033[48;5;196m"
+                   "   "
+                   "\033[0m";
+        }
+    };
+
     void print(const Grid &grid, const Metadata &metadata)
     {
         size_t cols = metadata.grid_size.columns;
@@ -65,8 +93,8 @@ public:
             cout << row << " | ";
             for (size_t column = 0; column < metadata.grid_size.columns; ++column)
             {
-                cout << grid(row, column);
-                cout << " | ";
+                cout << decorate_tile(grid(row, column));
+                cout << "|";
             }
 
             cout << endl;
