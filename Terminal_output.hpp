@@ -10,21 +10,7 @@ private:
     std::vector<std::vector<Tile>> tiles;
 
 public:
-    const Tile grey{'@'};
-    const Tile orange = 'A';
-    const Tile darkred = '*';
-    const Tile red = 'L';
-    const Tile green = 'W';
-    const Tile white = '0';
-    const Tile one = '1';
-    const Tile two = '2';
-    const Tile three = '3';
-    const Tile four = '4';
-    const Tile five = '5';
-    const Tile six = '6';
-    const Tile seven = '7';
-    const Tile eight = '8';
-    Grid(const GridSize &size) : tiles(size.rows, std::vector<Tile>(size.columns, 'L')){
+    Grid(const GridSize &size) : tiles(size.rows, std::vector<Tile>(size.columns, '8')){
                                      // Teste, ob rows und columns richtig übergeben werden
                                      //cout << "rows: " << size.rows << " columns: " << size.columns << endl;
                                      //cout << grey << endl;
@@ -56,6 +42,34 @@ public:
             return "\033[38;5;4m"
                    " 1 "
                    "\033[0m";
+        case '2':
+            return "\033[38;5;22m"
+                   " 2 "
+                   "\033[0m";
+        case '3':
+            return "\033[38;5;124m"
+                   " 3 "
+                   "\033[0m";
+        case '4':
+            return "\033[38;5;17m"
+                   " 4 "
+                   "\033[0m";
+        case '5':
+            return "\033[38;5;52m"
+                   " 5 "
+                   "\033[0m";
+        case '6':
+            return "\033[38;5;29m"
+                   " 6 "
+                   "\033[0m";
+        case '7':
+            return "\033[38;5;54m"
+                   " 7 "
+                   "\033[0m";
+        case '8':
+            return "\033[38;5;8m"
+                   " 8 "
+                   "\033[0m";
         case '@':
             return "\033[48;5;243m"
                    "   "
@@ -70,6 +84,11 @@ public:
                    "\033[0m";
         case 'L':
             return "\033[48;5;196m"
+                   "   "
+                   "\033[0m";
+
+        case '0':
+            return "\033[48;5;15m"
                    "   "
                    "\033[0m";
         }
