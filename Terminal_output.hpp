@@ -11,7 +11,7 @@ private:
     std::vector<std::vector<Tile>> tiles;
 
 public:
-    Grid(const GridSize &size) : tiles(size.rows, std::vector<Tile>(size.columns, '0')){
+    Grid(const GridSize &size) : tiles(size.rows, std::vector<Tile>(size.columns, 'W')){
                                      // Teste, ob rows und columns richtig übergeben werden
                                      //cout << "rows: " << size.rows << " columns: " << size.columns << endl;
                                      //cout << grey << endl;
@@ -128,6 +128,10 @@ private:
                    "\033[0m";
         case 'L':
             return "\033[48;5;196m"
+                   "   "
+                   "\033[0m";
+        case 'W':
+            return "\033[48;5;10m"
                    "   "
                    "\033[0m";
 
