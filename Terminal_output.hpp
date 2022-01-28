@@ -11,7 +11,7 @@ private:
     std::vector<std::vector<Tile>> tiles;
 
 public:
-    Grid(const GridSize &size) : tiles(size.rows, std::vector<Tile>(size.columns, '*')){
+    Grid(const GridSize &size) : tiles(size.rows, std::vector<Tile>(size.columns, '0')){
                                      // Teste, ob rows und columns richtig übergeben werden
                                      //cout << "rows: " << size.rows << " columns: " << size.columns << endl;
                                      //cout << grey << endl;
