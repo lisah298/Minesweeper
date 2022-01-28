@@ -1,6 +1,7 @@
 #include <memory>
 #include <string>
 #include <iostream>
+#include <string.h>
 
 using Action = char;
 using namespace std;
@@ -20,11 +21,30 @@ public:
             return *coordinates;
         }
     }
+    void read()
+    {
+        size_t x;
+        size_t y;
+        Action action;
+        cout << "Please enter your command\n";
+        cin >> action >> x >> y;
+        cout << x << y << endl;
+
+        if (action == 'q' or action == 'h')
+        {
+            coordinates.release();
+        }
+        else
+        {
+            Coordinates new_coordinates{x, y};
+            coordinates = make_unique<Coordinates>(new_coordinates);
+        }
+    };
 
 private:
     Action action;
     unique_ptr<Coordinates> coordinates{nullptr};
-    void read()
+    /*  void read()
     {
         string input;
         cout << "Pleas enter your command\n";
@@ -40,5 +60,5 @@ private:
             std::cin >> new_coordinates.y;
             coordinates = make_unique<Coordinates>(new_coordinates);
         }
-    };
+    }; */
 };
