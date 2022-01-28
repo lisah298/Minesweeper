@@ -24,20 +24,10 @@ private:
 
 public:
     Grid(const GridSize &size) : tiles(size.rows, std::vector<Tile>(size.columns, '@')){
-                                     // Teste, b rows und columns richtig übergeben werden
+                                     // Teste, ob rows und columns richtig übergeben werden
                                      //cout << "rows: " << size.rows << " columns: " << size.columns << endl;
                                  };
-    /*  Grid(const GridSize &size) : tiles{}
-    {
-        // create rows
-        tiles.resize(size.rows);
-        for (auto &row : tiles)
-        {
-            //cout << "Hi, ich bin im Konstrukotr";
-            // resize each row to have number of columns elements, each being '@'
-            row.resize(size.columns, grey);
-        }
-    }; */
+
     const Tile &operator()(Coordinates coords) const
     {
         return tiles[coords.x][coords.y];
@@ -48,37 +38,13 @@ public:
         return tiles[coords.x][coords.y];
     };
     const Tile &operator()(size_t row, size_t column) const
-    { //Bug beim return
-        //cout << "Ich bin im operator" << endl;
-        //cout << row << endl;
-        //cout << column << endl;
+    {
         return tiles.at(row).at(column);
     }
     Tile &operator()(size_t row, size_t column)
     {
         return tiles[row][column];
     }
-
-    //Getter
-    //size_t Grid::num_rows() const
-    //{
-    //    return Gridsize &size.rows;
-    //}
-
-    /* void print(const Grid &grid, const Metadata &metadata)
-    {
-        for (auto &x : tiles)
-        {
-            std::cout << "Hallo";
-            for (auto &y : x)
-            {
-
-                std::cout << y;
-                std::cout << "HI";
-            };
-            std::cout << '\n';
-        };
-    }; */
 
     void print(const Grid &grid, const Metadata &metadata)
     {
