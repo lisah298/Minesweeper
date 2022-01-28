@@ -13,4 +13,5 @@ int main()
     //Exercise 3
     Command c{};
     c.read();
+    c.validate(gridsize);
 };
