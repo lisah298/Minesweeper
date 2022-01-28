@@ -3,7 +3,7 @@
 #include <iostream>
 
 int main()
-{ //Exercise 1 and 2 Test Terminal print
+{ //Exercise 1 and 2 Test Terminal printer
     GridSize gridsize{8, 8};
     Metadata metadata{gridsize, 2};
     Grid grid{gridsize};
@@ -12,6 +12,5 @@ int main()
 
     //Exercise 3
     Command c{};
-    c.read();
-    c.validate(gridsize);
+    c.next_command(gridsize);
 };
