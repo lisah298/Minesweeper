@@ -3,6 +3,8 @@
 
 int main()
 {
-
-    return 0;
+    GridSize gridsize{5, 5};
+    Metadata metadata{gridsize, 2};
+    Grid grid{gridsize};
+    grid.print(grid, metadata);
 };
