@@ -1,6 +1,7 @@
 #include "Types.hpp"
 #include <vector>
 #include <iostream>
+#include <string>
 
 using namespace std;
 class Grid
@@ -48,17 +49,28 @@ public:
 
     void print(const Grid &grid, const Metadata &metadata)
     {
-
+        size_t cols = metadata.grid_size.columns;
+        //printe erste Zeile mit Spaltennummern
+        cout
+            << "    ";
+        for (int i = 0; i < metadata.grid_size.columns; ++i)
+        { //number with 3 spaces
+            cout << i << "   ";
+        }
+        cout << endl;
+        cout << "   " << string(4 * cols, '=') << endl;
         for (size_t row = 0; row < metadata.grid_size.rows; ++row)
         {
             // print row at beginning
-            cout << row << " |";
+            cout << row << " | ";
             for (size_t column = 0; column < metadata.grid_size.columns; ++column)
             {
                 cout << grid(row, column);
                 cout << " | ";
             }
-            cout << endl; // neue Zeile
+
+            cout << endl;
+            cout << "   " << string(4 * cols, '=') << endl; // neue Zeile mit -
         }
     }
 };
