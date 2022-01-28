@@ -12,12 +12,12 @@ struct GridSize
 
 struct Coordinates
 {
-    int x{0};
-    int y{0};
+    size_t x{0};
+    size_t y{0};
 };
 
 struct Metadata
 {
-    GridSize gridsize{0, 0};
-    size_t n_tiles{1};
+    GridSize grid_size{1, 1};
+    size_t n_mines{1};
 };
