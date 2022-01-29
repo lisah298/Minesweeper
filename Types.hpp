@@ -6,18 +6,18 @@ using Tile = char;
 
 struct GridSize
 {
-    size_t rows{0};
-    size_t columns{0};
+    size_t rows{4};
+    size_t columns{6};
 };
 
 struct Coordinates
 {
-    size_t x{0};
-    size_t y{0};
+    size_t x{static_cast<size_t>(-1)};
+    size_t y{static_cast<size_t>(-1)};
 };
 
 struct Metadata
 {
-    GridSize grid_size{1, 1};
-    size_t n_mines{1};
+    GridSize grid_size{};
+    size_t n_mines{grid_size.rows * grid_size.columns / 5};
 };
