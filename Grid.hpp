@@ -9,13 +9,11 @@ class Grid
 {
 private:
     std::vector<std::vector<Tile>> tiles;
+    size_t nRows() const { return tiles.size(); };
+    size_t nCols() const { return tiles[0].size(); };
 
 public:
-    Grid(const GridSize &size) : tiles(size.rows, std::vector<Tile>(size.columns, 'W')){
-                                     // Teste, ob rows und columns richtig übergeben werden
-                                     //cout << "rows: " << size.rows << " columns: " << size.columns << endl;
-                                     //cout << grey << endl;
-                                 };
+    explicit Grid(const GridSize &size) : tiles(size.rows, std::vector<Tile>(size.columns, '@')){};
 
     const Tile &operator()(Coordinates coords) const
     {
