@@ -36,3 +36,18 @@ int main()
     Command c{};
     c.next_command(gridsize);
 };
+
+void TerminalPrinter::print_numbers(size_t num_columns) const
+{
+    cout
+        << "    ";
+    for (int i = 0; i < num_columns; ++i)
+    { //number with 3 spaces
+        cout << i << "   ";
+    }
+    cout << endl;
+};
+void TerminalPrinter::print_line_of_equals(size_t num_columns) const
+{
+    cout << "  =" << string(4 * num_columns, '=') << endl;
+};

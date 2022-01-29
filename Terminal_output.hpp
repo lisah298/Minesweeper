@@ -16,20 +16,8 @@ public:
     void print(const Grid &grid, const Metadata &metadata);
 
 private:
-    void print_numbers(size_t num_columns)
-    {
-        cout
-            << "    ";
-        for (int i = 0; i < num_columns; ++i)
-        { //number with 3 spaces
-            cout << i << "   ";
-        }
-        cout << endl;
-    };
-    void print_line_of_equals(size_t num_columns)
-    {
-        cout << "  =" << string(4 * num_columns, '=') << endl;
-    };
+    void print_numbers(size_t) const;
+    void print_line_of_equals(size_t) const;
 
     string decorate_tile(const Tile &tile)
     {
