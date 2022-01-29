@@ -1,5 +1,5 @@
 #pragma once
-#include <array>
+#include <cstddef>
 
 using size_t = std::size_t;
 using Tile = char;
