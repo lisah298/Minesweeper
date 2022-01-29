@@ -9,6 +9,7 @@
 using namespace std;
 
 class Grid;
+class Mask;
 
 class TerminalPrinter
 {
@@ -20,4 +21,6 @@ private:
     void print_line_of_equals(size_t) const;
     std::string decorate_tile(const Tile) const;
     void print_metadata(const Metadata &) const;
+    void indent() const;
+    void endline() const;
 };

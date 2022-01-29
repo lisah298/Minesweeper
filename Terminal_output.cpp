@@ -2,6 +2,10 @@
 #include "Command.hpp"
 #include <iostream>
 
+void TerminalPrinter::indent() const { std::cout << "    "; }
+
+void TerminalPrinter::endline() const { std::cout << "\n"; }
+
 void TerminalPrinter::print(const Grid &grid, const Metadata &metadata) const
 {
     size_t cols = metadata.grid_size.columns;
@@ -39,8 +43,7 @@ int main()
 
 void TerminalPrinter::print_numbers(size_t num_columns) const
 {
-    cout
-        << "    ";
+    indent();
     for (int i = 0; i < num_columns; ++i)
     { //number with 3 spaces
         cout << i << "   ";
