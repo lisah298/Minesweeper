@@ -2,7 +2,7 @@
 #include "Command.hpp"
 #include <iostream>
 
-void TerminalPrinter::print(const Grid &grid, const Metadata &metadata)
+void TerminalPrinter::print(const Grid &grid, const Metadata &metadata) const
 {
     size_t cols = metadata.grid_size.columns;
     //printe erste Zeile mit Spaltennummern
@@ -52,7 +52,7 @@ void TerminalPrinter::print_line_of_equals(size_t num_columns) const
     cout << "  =" << string(4 * num_columns, '=') << endl;
 };
 
-string TerminalPrinter::decorate_tile(const Tile &tile)
+std::string TerminalPrinter::decorate_tile(const Tile tile) const
 {
     switch (tile)
     {
