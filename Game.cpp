@@ -2,6 +2,7 @@
 #include "Command.hpp"
 #include "Grid.hpp"
 #include "Terminal_output.hpp"
+#include "Utiities.hpp"
 
 int main()
 {
