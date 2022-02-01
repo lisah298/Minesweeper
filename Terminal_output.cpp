@@ -1,6 +1,5 @@
 #include "Terminal_output.hpp"
-#include "Command.hpp"
-#include <iostream>
+#include "Grid.hpp"
 
 void TerminalPrinter::indent() const { std::cout << "    "; }
 
@@ -26,19 +25,6 @@ void TerminalPrinter::print(const Grid &grid, const Metadata &metadata) const
         print_line_of_equals(cols);
     }
     print_numbers(cols);
-};
-
-int main()
-{ //Exercise 1 and 2 Test Terminal printer
-    GridSize gridsize{8, 8};
-    Metadata metadata{gridsize, 2};
-    Grid grid{gridsize};
-    TerminalPrinter t{};
-    t.print(grid, metadata);
-
-    //Exercise 3
-    Command c{};
-    c.next_command(gridsize);
 };
 
 void TerminalPrinter::print_numbers(size_t num_columns) const
