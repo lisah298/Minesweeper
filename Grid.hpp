@@ -15,8 +15,8 @@ private:
     size_t nCols() const { return tiles[0].size(); };
 
 public:
-    explicit Grid(const GridSize &size) : tiles(size.rows, std::vector<Tile>(size.columns, '@')){};
-
+    explicit Grid(const GridSize &size) : tiles(size.rows, std::vector<Tile>(size.columns, '-')){};
+    GridSize size() const { return {nRows(), nCols()}; }
     const Tile &operator()(Coordinates coords) const
     {
         return tiles[coords.x][coords.y];

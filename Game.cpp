@@ -11,6 +11,7 @@ int main()
     Grid grid(size);
     Metadata metadata{size, 5};
     TerminalPrinter display{};
+    display.print(grid, metadata);
     grid(0, 0) = 'A';
     grid(0, 1) = '*';
     grid(0, 2) = 'L';

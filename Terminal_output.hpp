@@ -1,11 +1,10 @@
 #pragma once
 
-#include "Types.hpp"
-
-#include <vector>
+#include <iomanip>
 #include <iostream>
 #include <string>
-
+#include <vector>
+#include "Types.hpp"
 using namespace std;
 
 class Grid;
