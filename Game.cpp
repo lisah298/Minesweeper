@@ -7,9 +7,7 @@
 
 int main()
 {
-    Coordinates uninitialized{};
     Coordinates c = {2, 2};
-    std::cout << "(" << uninitialized.x << ", " << uninitialized.y << ")\n";
     GridSize size{4U, 8U};
     Grid grid(size);
     Metadata metadata{size, 5};
