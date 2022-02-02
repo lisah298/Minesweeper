@@ -15,7 +15,7 @@ int main()
     Metadata metadata{size, 5};
     TerminalPrinter display{};
     display.print(grid, metadata);
-    grid(0, 0) = Tile_type::armed_tile;
+    grid(0, 0) = Tile_type::armed_tile; //test if Tile_type definition works
     grid(0, 1) = '*';
     grid(0, 2) = 'L';
     grid(0, 3) = 'W';
