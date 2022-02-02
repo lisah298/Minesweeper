@@ -66,6 +66,6 @@ count_type_of_tile_among_adjacent_ones(const Coordinates &coords, const Tile &ti
             counter += 1;
         };
     }
-    std::cout << counter << " neighbours with " << tile << std::endl;
+    std::cout << counter << " neighbour(s) with " << tile << " at (" << coords.x << "," << coords.y << ')' << std::endl;
     return counter;
 };
