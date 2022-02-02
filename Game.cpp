@@ -7,10 +7,9 @@
 int main()
 {
     Coordinates uninitialized{};
-    Coordinates c = {0, 2};
+    Coordinates c = {2, 2};
     std::cout << "(" << uninitialized.x << ", " << uninitialized.y << ")\n";
     GridSize size{4U, 8U};
-    next_neighbours(c, size);
     Grid grid(size);
     Metadata metadata{size, 5};
     TerminalPrinter display{};
@@ -29,6 +28,7 @@ int main()
     grid(1, 6) = '7';
     grid(1, 7) = '8';
     display.print(grid, metadata);
+    count_type_of_tile_among_adjacent_ones(c, '-', grid);
     Command act = Command::next_command(size);
     std::cout << act.action() << "  (" << act.coordinates().x << ", " << act.coordinates().y << ")\n\n";
     return 0;
