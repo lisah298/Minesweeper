@@ -21,3 +21,13 @@ struct Metadata
     GridSize grid_size{};
     size_t n_mines{grid_size.rows * grid_size.columns / 5};
 };
+
+struct Tile_type
+{
+    static constexpr Tile armed_tile = 'A';
+    static constexpr Tile unrevealed_tile = '@';
+    static constexpr Tile loser_tile = 'L';
+    static constexpr Tile winner_tile = 'W';
+    static constexpr Tile revealed_mine_tile = '*';
+    static constexpr Tile no_adjactent_mines_tile = '0';
+};
