@@ -9,7 +9,7 @@ using namespace std;
 
 class Grid;
 class Mask;
-
+class Board;
 class TerminalPrinter
 {
 public:
