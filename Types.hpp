@@ -29,5 +29,5 @@ struct Tile_type
     static constexpr Tile loser_tile = 'L';
     static constexpr Tile winner_tile = 'W';
     static constexpr Tile revealed_mine_tile = '*';
-    static constexpr Tile no_adjactent_mines_tile = '0';
+    static constexpr Tile empty_tile = '0';
 };

@@ -74,6 +74,9 @@ std::string TerminalPrinter::decorate_tile(const Tile tile) const
     case '*':
         return "\033[48;5;1m\033[38;5;0m \033[0m";
         break;
+    case '0':
+        return "\033[48;5;15m\033[38;5;0m \033[0m";
+        break;
     default:
         out = tile;
         break;

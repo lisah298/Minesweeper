@@ -16,7 +16,6 @@ protected:
 
 public:
     explicit Grid(const GridSize &size) : tiles(size.rows, std::vector<Tile>(size.columns, '-')){};
-    virtual ~Grid(){};
     GridSize size() const { return {nRows(), nCols()}; }
     const Tile &
     operator()(Coordinates coords) const
@@ -36,4 +35,5 @@ public:
     {
         return tiles[row][column];
     };
+    virtual ~Grid(){};
 };
