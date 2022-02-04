@@ -33,7 +33,7 @@ int main()
     grid(1, 7) = '8';
     grid(2, 7) = '0';
     display.print(grid, metadata);
-    count_type_of_tile_among_adjacent_ones(c, '2', grid);
+    //count_type_of_tile_among_adjacent_ones(c, '2', grid);
     Command act = Command::next_command(size);
     std::cout << act.action() << "  (" << act.coordinates().x << ", " << act.coordinates().y << ")\n\n";
     return 0;

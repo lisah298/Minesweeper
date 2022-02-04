@@ -4,6 +4,8 @@
 Board::Board(const GridSize &size, size_t numMines) : Grid(size), n_mines(numMines)
 {
     // 1. Prüfe ob numMines < number of tiles
+    Grid board(size);
+    board(0, 1) = 'W';
     size_t n_tiles = nCols() * nRows();
     if (numMines > n_tiles)
     {
@@ -12,6 +14,7 @@ Board::Board(const GridSize &size, size_t numMines) : Grid(size), n_mines(numMin
     }
     else
     { // Test, um Zahl der Minen anzuzeigen
+        // Grid test(size);
         std::cout << numMines << " number of mines are valid" << std::endl;
         tiles.resize(nRows());
         // 2. fill board with empty tiles by calling the constructor
@@ -19,18 +22,33 @@ Board::Board(const GridSize &size, size_t numMines) : Grid(size), n_mines(numMin
         {
             row.resize(nCols());
             std::fill(std::begin(row), std::end(row), '0');
+        };
+        // hier sollte die 3. Funktion
+        for (size_t i = 0; i < nRows(); i++)
+        {
+            for (size_t j = 0; j < nCols(); j++)
+            {
+                if (tiles.at(i).at(j) != '*')
+                {
+                    Coordinates tile{i, j};
+                    // size_t count = count_type_of_tile_among_adjacent_ones(tile, '*', tiles);
+                    //   std::cout << count << std::endl;
+                    // tiles.at(i).at(j) = std::to_string(count)[0];
+                };
+            }
         }
     }
 
     // 3. randomly distirbute the mines on the grid
     Board::distribute_mines();
     // 4. fill the safe tiles with the number of adjactent mines
+    // Board::set_adjactent_mines_numbers();
 };
 
 void Board::distribute_mines()
 {
     size_t bomb_counter = 0;
-    for (int i = 0; bomb_counter < n_mines; i++)
+    while (bomb_counter <= n_mines)
     {
         // std::cout << i << '\n';
         auto seed = std ::chrono ::system_clock ::now().time_since_epoch().count();
@@ -47,7 +65,7 @@ void Board::distribute_mines()
         // tiles(bomb) = '*';
         if (tiles.at(Number_y).at(Number_x) != '*')
         {
-            // eigentlich sollte ich hier meine Operator overload nutzen, aber das funktioniert irgendwie nicht
+
             tiles.at(Number_y).at(Number_x) = '*';
             bomb_counter++;
         };
@@ -55,5 +73,20 @@ void Board::distribute_mines()
 };
 void Board::set_adjactent_mines_numbers()
 {
+    int count2 = 0;
     std::cout << " Yeah" << std::endl;
+    for (size_t i = 0; i < nRows(); i++)
+    {
+        for (size_t j = 0; j < nCols(); j++)
+        {
+            if (tiles.at(i).at(j) != '*')
+            {
+                Coordinates tile{i, j};
+                // size_t count = count_type_of_tile_among_adjacent_ones(tile, '*', tiles);
+                //   std::cout << count << std::endl;
+                // tiles.at(i).at(j) = std::to_string(count)[0];
+            };
+        }
+    }
+    std::cout << count2 << std::endl;
 };
