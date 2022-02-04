@@ -29,7 +29,8 @@ Board::Board(const GridSize &size, size_t numMines) : Grid(size), n_mines(numMin
 
 void Board::distribute_mines()
 {
-    for (int i = 0; i < n_mines; i++)
+    size_t bomb_counter = 0;
+    for (int i = 0; bomb_counter < n_mines; i++)
     {
         // std::cout << i << '\n';
         auto seed = std ::chrono ::system_clock ::now().time_since_epoch().count();
@@ -37,13 +38,22 @@ void Board::distribute_mines()
         // number for x
         std ::uniform_int_distribution<size_t> getInteger(0, nCols() - 1);
         size_t Number_x = getInteger(generator);
-        std::cout << "X: " << Number_x << '\t';
-        // number for y
+        // std::cout << "x: " << Number_x << '\t';
+        //  number for y
         std ::uniform_int_distribution<size_t> getInteger2(0, nRows() - 1);
         size_t Number_y = getInteger2(generator);
-        std::cout << "y: " << Number_y << '\n';
-        // Coordinates bomb{Number_x, Number_y};
-        tiles.at(Number_y).at(Number_x) = '*';
+        // std::cout << "y: " << Number_y << '\n';
+        Coordinates bomb{Number_x, Number_y};
+        // tiles(bomb) = '*';
+        if (tiles.at(Number_y).at(Number_x) != '*')
+        {
+            // eigentlich sollte ich hier meine Operator overload nutzen, aber das funktioniert irgendwie nicht
+            tiles.at(Number_y).at(Number_x) = '*';
+            bomb_counter++;
+        };
     }
 };
-// void Board::set_adjactent_mines_numbers(){};
+void Board::set_adjactent_mines_numbers()
+{
+    std::cout << " Yeah" << std::endl;
+};
